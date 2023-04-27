@@ -1,12 +1,4 @@
-export interface AuthDetails{
-    token:string;
-    refreshToken:string;
-}
-
-export interface Permissions {
-    admin:boolean;
-    user:boolean;
-}
+import { AuthDetails, Permissions } from "../../app/Schemas";
 
 export interface ForControlAuthenticating{
     getAuthDetails(email:string,pasword:string):Promise<AuthDetails>;
