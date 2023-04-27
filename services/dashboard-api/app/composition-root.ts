@@ -5,11 +5,14 @@ import { ControllAuthenticatorStub, RepoQueryStub } from "../adapters/driven"
 import { AuthenticatorProxyAdapter } from "../adapters/drivers";
 import { DashboardApi } from "./dashboard-api"
 
+//* el composition root es el que implementa el dashboard api
 const compositionMock = ()=>{
     const controlAuthenticatorStub = new ControllAuthenticatorStub()
     const repoQuerierStub = new RepoQueryStub();
     const dashBoardApiMoCk = new DashboardApi(controlAuthenticatorStub,repoQuerierStub)
 
+    //* lo que debe devolver es una instancia del adapter
+    //* que ejecuta todo lo que esta definido en el driver port
     const authenticatorProxyAdapter = new AuthenticatorProxyAdapter(
         dashBoardApiMoCk
     )

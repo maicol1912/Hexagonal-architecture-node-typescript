@@ -2,7 +2,7 @@ import { ForControlAuthenticating, ForRepoQuerying } from "../ports/driven";
 import { ForAuthenticating } from "../ports/drivers";
 import { AuthenticatedUser, User } from "./Schemas";
 
-
+//* en este caso la aplicacion implementa el adapter ya que el adapter contiene las funciones del hexagono
 export class DashboardApi implements ForAuthenticating{
     constructor(
         private readonly controlAuthenticator:ForControlAuthenticating,

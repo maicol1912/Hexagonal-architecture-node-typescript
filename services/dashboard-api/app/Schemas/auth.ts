@@ -1,3 +1,4 @@
+//* en el schemas iran todas las interfaces que necesitamos
 export interface AuthDetails {
     token: string;
     refreshToken: string;

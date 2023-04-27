@@ -1,3 +1,4 @@
+//* los port drivers son quien van a limitar las funcionalidades del adapter driver 
 import { AuthenticatedUser, User } from "../../app/Schemas";
 
 

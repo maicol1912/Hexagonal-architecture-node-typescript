@@ -1,4 +1,4 @@
-//* aca van los eventos que van a entrar
+//* en el schemas iran todas las interfaces que necesitamos
 
 export interface AuthenticatedUser {
     id: string;

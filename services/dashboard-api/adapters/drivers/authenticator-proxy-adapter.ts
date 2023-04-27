@@ -1,3 +1,7 @@
+//* los adapters son los proxys que implementan un úerto, el cual el puerto es el que limita el adapter
+//* los drivers son los proxys y los que implementan los puertos ---- el driver es lo que realiza el hexagono y a lo que van a llamar
+//* los drivens de otro hexagono
+
 import { AuthenticatedUser, User } from "../../app/Schemas";
 import { DashboardApi } from "../../app/dashboard-api";
 import { ForAuthenticating } from "../../ports/drivers";
