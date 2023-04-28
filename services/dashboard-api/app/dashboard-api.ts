@@ -1,7 +1,7 @@
 import { ForControlAuthenticating, ForRepoQuerying } from "../ports/driven";
 import { ForAuthenticating } from "../ports/drivers";
 import { AuthenticatedUser, User } from "./Schemas";
-
+//* este es el middleware quie comunican front con base de datos
 //* en este caso la aplicacion implementa el adapter ya que el adapter contiene las funciones del hexagono
 export class DashboardApi implements ForAuthenticating{
     //* siempre la app debe implemnetar los adapters driven de otros hexagonos, nunca directamente la app
