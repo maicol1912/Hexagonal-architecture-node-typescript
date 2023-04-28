@@ -22,10 +22,11 @@ const compositionMock = ()=>{
 }
 
 export const { authenticatorProxyAdapter } =  compositionMock()
-
+//* creamos un mock para enviarlo en los metodos
 const registerMock = {
     name:"maicol",
     email:"maicolarcila@gmail.com"
 }
+//* debemos ejecutar siempre los adapters, nunca directamente la App
 authenticatorProxyAdapter.login('Jhon@gmail.com','123455')
 authenticatorProxyAdapter.register(registerMock, '123455')
