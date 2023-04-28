@@ -1,3 +1,4 @@
+//* definimos el usuario del repositorio
 export interface User{
     name:string;
     email:string;

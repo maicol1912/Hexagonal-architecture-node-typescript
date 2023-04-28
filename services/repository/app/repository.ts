@@ -3,10 +3,12 @@ import { ForManagingUser } from "../ports/drivers";
 import { RepoUser, User } from "./Schemas";
 
 export class Repository implements ForManagingUser{
+    //* inicializamos una lista simulando una base de datos
     private userList: RepoUser[] = []
-
+    //* el api debe implementar el driven para poder ejecutar servicios externos
     constructor(private readonly logger: ForMonitoring) { }
 
+    //* aca implementamos el puerto del driver y le mostramos como se debe comportar este usando los servicios externos
     async getUser(email: string): Promise<RepoUser> {
         const user = this.userList.find((user) => user.email === email)
 
@@ -17,7 +19,7 @@ export class Repository implements ForManagingUser{
         this.logger.log("Get user", "User listed")
         return user;
     }
-
+    //* aca implementamos el puerto del driver y le mostramos como se debe comportar este usando los servicios externos
     async createUser(user: User, password: string): Promise<RepoUser> {
         const userExists = this.userList.find((user) => user.email === user.email)
         if (userExists) {
