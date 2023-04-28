@@ -1,2 +1,2 @@
-//* barrel que exporta nuestros drivers
+export * from './auth-trpc-adapter';
 export * from './authenticator-proxy-adapter';

@@ -2,6 +2,13 @@
 import {z} from "zod"
 import {  PermissionsSchema } from "./auth";
 
+
+export const RegisterSchema = z.object({
+    email: z.string().email('invalid email'),
+    name: z.string(),
+    password:z.string()
+})
+
 export const AuthenticatedUserSchema  = z.object({
     id: z.string(),
     email: z.string().email('invalid email'),

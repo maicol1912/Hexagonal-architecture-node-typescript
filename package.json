@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest",
+    "start":"tsx services/dashboard-api/server.ts"
   },
   "keywords": [],
   "author": "",
