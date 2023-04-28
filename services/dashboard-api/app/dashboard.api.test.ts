@@ -50,7 +50,8 @@ describe("DashboardApi", () => {
 
         const mockedUser: User = {
             name: "John",
-            email: "john@gmail.com"
+            email: "john@gmail.com",
+            password:"password"
         };
 
         const expectedResult: AuthenticatedUser = {
@@ -67,7 +68,7 @@ describe("DashboardApi", () => {
         //* ejecutamos el register y enviamos los datos mockeados
         //* en este caso estan quemados debido a que el repository esta devolviendo unos mocks de un usuario
         //WHEN
-        const result = await dashboardApiMock.register(mockedUser,"12233");
+        const result = await dashboardApiMock.register(mockedUser);
         //* aca dice que el resultado deberia ser igual al expceted result declarado
         //THEN
         expect(result).toEqual(expectedResult);

@@ -30,15 +30,15 @@ export class DashboardApi implements ForAuthenticating{
     }
 
     //* aca tambien se usan los driven para ejecutar servicios externos y poder ser usados
-    async register(user: User, password: string): Promise<AuthenticatedUser> {
-        const newUser = await this.repoQuerier.createUser(user,password);
+    async register(user: User): Promise<AuthenticatedUser> {
+        const newUser = await this.repoQuerier.createUser(user);
         const authDetails = await this.controlAuthenticator.getAuthDetails(
             user.email,
-            password
+            user.password
         )
         const permissions = await this.controlAuthenticator.getPermission(
             user.email,
-            password
+            user.password
         )
         //* este devuelve una copia de los atributos de los 2 objetos
         //* y el permiso tambien

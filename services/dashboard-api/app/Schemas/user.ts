@@ -16,4 +16,6 @@ export interface AuthenticatedUser {
 /*export type User = Omit<AthenticatedUser,'id'|'token'|'refreshToken'>*/
 
 //* estamos creando un type que se basa de una interface, pero seleccionando solo lo que le especifiquemos
-export type User = Pick<AuthenticatedUser, 'email' | 'name'>
+export interface User extends Pick<AuthenticatedUser, 'email' | 'name'>{
+    password:string
+}

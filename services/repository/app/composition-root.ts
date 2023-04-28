@@ -22,9 +22,10 @@ export const {userManagerProxy} = compositionMock();
 
 const registerMock = {
     name:"Samuelcito",
-    email:"samu@gmail.com",
+    email:"samuelcito@gmail.com",
     password:"11223"
 }
+
 //* simulamos los servicios enviando el mock del usuario
 userManagerProxy.getUser("jhon@gmail.com")
 //userManagerProxy.createUser(registerMock,"jhon@gmail.com")

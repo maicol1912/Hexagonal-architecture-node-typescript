@@ -1,6 +1,6 @@
 import { ForMonitoring } from "../ports/drivens";
 import { ForManagingUser } from "../ports/drivers";
-import { RepoUser, User } from "./Schemas";
+import { ExternalUser, RepoUser, User } from "./Schemas";
 
 export class Repository implements ForManagingUser{
     //* inicializamos una lista simulando una base de datos
@@ -9,7 +9,7 @@ export class Repository implements ForManagingUser{
     constructor(private readonly logger: ForMonitoring) { }
 
     //* aca implementamos el puerto del driver y le mostramos como se debe comportar este usando los servicios externos
-    async getUser(email: string): Promise<RepoUser> {
+    async getUser(email: string): Promise<ExternalUser> {
         const user = this.userList.find((user) => user.email === email)
 
         if (!user) {
@@ -17,10 +17,14 @@ export class Repository implements ForManagingUser{
             throw new Error("User not found")
         }
         this.logger.log("Get user", "User listed")
-        return user;
+        return {
+            id:user.id,
+            name:user.name,
+            email:user.email
+        };
     }
     //* aca implementamos el puerto del driver y le mostramos como se debe comportar este usando los servicios externos
-    async createUser(user: User, password: string): Promise<RepoUser> {
+    async createUser(user: User): Promise<ExternalUser> {
         const userExists = this.userList.find((user) => user.email === user.email)
         if (userExists) {
             this.logger.log("CreateUser", "User already exists");
@@ -28,12 +32,15 @@ export class Repository implements ForManagingUser{
         }
         const newUser = {
             ...user,
-            password,
             id: String(this.userList.length + 1)
         }
         this.userList.push(newUser)
         this.logger.log("Create User","User created")
-        return newUser
+        return {
+            id:newUser.id,
+            name:newUser.name,
+            email:newUser.email
+        }
     }
     
 }

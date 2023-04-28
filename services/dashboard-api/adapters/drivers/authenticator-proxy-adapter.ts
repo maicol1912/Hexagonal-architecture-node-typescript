@@ -20,7 +20,7 @@ export class AuthenticatorProxyAdapter implements ForAuthenticating{
 
     //* llamamos al register definido en nuestro port y ejecutamos el metodo respectivo de nuestro dashboard API
     register(user: User, password: string): Promise<AuthenticatedUser> {
-        return this.dashboardApi.register(user,password)
+        return this.dashboardApi.register(user)
     }
 
 }

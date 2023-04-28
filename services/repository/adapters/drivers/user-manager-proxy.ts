@@ -1,4 +1,4 @@
-import { RepoUser, User } from "../../app/Schemas";
+import { ExternalUser, RepoUser, User } from "../../app/Schemas";
 import { Repository } from "../../app/repository";
 import { ForManagingUser } from "../../ports/drivers";
 
@@ -7,12 +7,12 @@ export class UserManagerProxy implements ForManagingUser{
     //* por medio del constructor llamamos el app, para ejecutar sus funciones
     constructor(private readonly repository:Repository){}
     //* llamamos al getUser del repositorio, este metodo de adapter sera implementada por otros hexagonos
-    getUser(email: string): Promise<RepoUser> {
+    getUser(email: string): Promise<ExternalUser> {
         return this.repository.getUser(email)
     }
     //* estamos llamando al servicio de app y este metodo se implementa desde otros hexagonos
-    createUser(user: User, password: string): Promise<RepoUser> {
-        return this.repository.createUser(user,password)
+    createUser(user: User): Promise<ExternalUser> {
+        return this.repository.createUser(user)
     }
     
 }

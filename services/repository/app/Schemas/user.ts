@@ -5,6 +5,8 @@ export interface User{
     password:string
 }
 
-export interface RepoUser extends Omit<User,'password'>{
+export interface RepoUser extends User{
     id: string;
 }
+
+export type ExternalUser = Omit<RepoUser,"password">
